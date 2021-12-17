@@ -1,0 +1,47 @@
+{
+  "name": "@oncarbon/git-changelog-generator-for-slack",
+  "version": "0.0.0",
+  "description": "Generate a slack message JSON from git commits",
+  "keywords": [
+    "git",
+    "slack",
+    "changelog",
+    "commit"
+  ],
+  "main": "dist/lib.js",
+  "module": "dist/lib.js",
+  "bin": "dist/bin.js",
+  "files": [
+    "dist/"
+  ],
+  "author": "Oncarbon",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oncarbon/git-changelog-generator-for-slack.git"
+  },
+  "homepage": "https://github.com/Oncarbon/git-changelog-generator-for-slack/tree/main/packages/git-changelog-generator-for-slack",
+  "bugs": {
+    "url": "https://github.com/Oncarbon/git-changelog-generator-for-slack/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc -p .",
+    "test": "echo \"no tests\"",
+    "watch": "tsc -p . --watch"
+  },
+  "dependencies": {
+    "minimist": "^1.2.5",
+    "simple-git": "^2.48.0"
+  },
+  "devDependencies": {
+    "@types/minimist": "1.2.2",
+    "@types/node": "16.11.14",
+    "np": "7.6.0",
+    "rimraf": "3.0.2",
+    "ts-node": "10.4.0",
+    "typescript": "4.5.4"
+  }
+}
