@@ -113,7 +113,7 @@ function headerBlock(text: string) {
   return {
     type: "header",
     text: {
-      type: "mrkdwn",
+      type: "plain_text",
       text,
     },
   };
