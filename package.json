@@ -1,6 +1,6 @@
 {
   "name": "@oncarbon/git-changelog-generator-for-slack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate a slack message JSON from git commits",
   "keywords": [
     "git",
