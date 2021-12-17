@@ -26,7 +26,7 @@ const msg = generateSlackMsg({
 
 ## Usage as an executable
 
-The message JSON is printed into stdout.
+The message JSON is printed into stdout. Parameters can be given using either as arguments
 
 ```bash
 npm i --save @oncarbon/git-changelog-generator-for-slack
@@ -37,4 +37,16 @@ npx git-changelog-generator-for-slack \
   --header="New release"
   --preCommitsMsg="Following changes are now out:" \
   sha1 HEAD
+```
+
+or as env variables
+
+```bash
+npm i --save @oncarbon/git-changelog-generator-for-slack
+
+SLACK_MSG_GH_USER="oncarbon" \
+SLACK_MSG_GH_REPO="git-changelog-generator-for-slack" \
+SLACK_MSG_HEADER="New release" \
+SLACK_MSG_PRECOMMITS_MSG="Following changes are now out:" \
+npx git-changelog-generator-for-slack sha1 HEAD
 ```

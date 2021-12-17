@@ -13,7 +13,10 @@ async function run() {
 
   const [from, to] = argv._;
 
-  const { user, repo, header, preCommitsMsg } = argv;
+  const user = argv.user || process.env.SLACK_MSG_GH_USER;
+  const repo = argv.repo || process.env.SLACK_MSG_GH_REPO;
+  const header = argv.header || process.env.SLACK_MSG_HEADER;
+  const preCommitsMsg = argv.preCommitsMsg || process.env.SLACK_MSG_PRECOMMITS_MSG;
 
   if (!from || !to) {
     printUsage();
