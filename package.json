@@ -29,6 +29,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -p .",
+    "prepare": "npm run build",
     "test": "echo \"no tests\"",
     "watch": "tsc -p . --watch"
   },
