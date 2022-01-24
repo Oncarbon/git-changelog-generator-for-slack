@@ -21,16 +21,11 @@ async function format({ from, to, formatting }: Opts) {
   await ensureRevExists(to);
 
   const commits = await getCommits(from, to);
-  if (commits.total === 0) {
-    return;
-  }
 
   return formatSlackMessage(commits, formatting);
 }
 
 export default format;
-
-async function run() {}
 
 async function ensureRevExists(rev: string) {
   try {
@@ -80,7 +75,11 @@ function formatSlackMessage(commits: Commits, formatting: FormattingOpts) {
     blocks.push(divider());
   }
 
-  blocks.push(...commits.all.map((c) => sectionBlock(formatCommit(c, formatting))));
+  if (commits.total === 0) {
+    blocks.push(sectionBlock("No commits found."));
+  } else {
+    blocks.push(...commits.all.map((c) => sectionBlock(formatCommit(c, formatting))));
+  }
 
   return {
     blocks,
@@ -134,5 +133,3 @@ function divider() {
     type: "divider",
   };
 }
-
-run();
