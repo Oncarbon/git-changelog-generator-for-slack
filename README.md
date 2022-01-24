@@ -50,3 +50,9 @@ SLACK_MSG_HEADER="New release" \
 SLACK_MSG_PRECOMMITS_MSG="Following changes are now out:" \
 npx git-changelog-generator-for-slack sha1 HEAD
 ```
+
+## Publishing a new release
+
+```bash
+npx np
+```
