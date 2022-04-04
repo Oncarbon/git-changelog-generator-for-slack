@@ -62,7 +62,7 @@ type Commits = Awaited<ReturnType<typeof getCommits>>;
 
 function formatSlackMessage(commits: Commits, formatting: FormattingOpts) {
   const { header, preCommitsMsg } = formatting;
-  const blocks = [];
+  let blocks = [];
 
   if (header) {
     blocks.push(headerBlock(header));
@@ -79,6 +79,15 @@ function formatSlackMessage(commits: Commits, formatting: FormattingOpts) {
     blocks.push(sectionBlock("No commits found."));
   } else {
     blocks.push(...commits.all.map((c) => sectionBlock(formatCommit(c, formatting))));
+  }
+
+  // Slack doesn't support more than 50 blocks
+  if (blocks.length > 50) {
+    const numTotalBlocks = blocks.length;
+    blocks = [
+      ...blocks.slice(0, 49),
+      sectionBlock(`...and ${numTotalBlocks - commits.total} more.`),
+    ];
   }
 
   return {
